@@ -15,3 +15,4 @@ var server = http.createServer((request, response) => {
     response.end('Hello World my love!')
 })
 server.listen(8080)
+console.log('http server at 8080')
