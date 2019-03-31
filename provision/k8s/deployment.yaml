@@ -2,10 +2,10 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: truck-APP_NAME
-  #namespace: logistic
+  name: thanglab-APP_NAME
+  #namespace: default
   labels:
-    app: truck-APP_NAME
+    app: thanglab-APP_NAME
 spec:
   replicas: 1
   strategy:
@@ -15,11 +15,11 @@ spec:
       maxSurge: 1
   selector:
     matchLabels:
-      app: truck-APP_NAME
+      app: thanglab-APP_NAME
   template:
     metadata:
       labels:
-        app: truck-APP_NAME
+        app: thanglab-APP_NAME
         date: "_DATE_"
     spec:
       #imagePullSecrets:
@@ -27,8 +27,8 @@ spec:
       terminationGracePeriodSeconds: 180
       restartPolicy: Always
       containers:
-      - name: truck-APP_NAME
-        image: asia.gcr.io/ghn-logistic/logistic_phoenix:_VERSION_
+      - name: thanglab-APP_NAME
+        image: letanthang/hello-world
         ports:
         - containerPort: 9090
         imagePullPolicy: Always
@@ -49,12 +49,12 @@ spec:
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: truck-APP_NAME
+  name: thanglab-APP_NAME
 spec:
   scaleTargetRef:
     apiVersion: extensions/v1beta1
     kind: Deployment
-    name: truck-APP_NAME
+    name: thanglab-APP_NAME
   minReplicas: 1
   maxReplicas: 3
   metrics:
@@ -70,16 +70,16 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: truck-APP_NAME
+  name: thanglab-APP_NAME
   #namespace: station
 spec:
   selector:
-    app: truck-APP_NAME
+    app: thanglab-APP_NAME
   type: NodePort # Test kong ingress
   ports:
   ####### Kong Ingress
   - port: 8080
     targetPort: 8080
     protocol: TCP
-    name: truck-APP_NAME
+    name: thanglab-APP_NAME
 ---
