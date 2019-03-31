@@ -45,27 +45,27 @@ spec:
           limits:
             memory: "60Mi"
             cpu: "70m"
----
-apiVersion: autoscaling/v2beta1
-kind: HorizontalPodAutoscaler
-metadata:
-  name: thanglab-APP_NAME
-spec:
-  scaleTargetRef:
-    apiVersion: extensions/v1beta1
-    kind: Deployment
-    name: thanglab-APP_NAME
-  minReplicas: 1
-  maxReplicas: 3
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      targetAverageUtilization: 80
-  - type: Resource
-    resource:
-      name: memory
-      targetAverageValue: 512Mi
+# ---
+# apiVersion: autoscaling/v2beta1
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   name: thanglab-APP_NAME
+# spec:
+#   scaleTargetRef:
+#     apiVersion: extensions/v1beta1
+#     kind: Deployment
+#     name: thanglab-APP_NAME
+#   minReplicas: 1
+#   maxReplicas: 3
+#   metrics:
+#   - type: Resource
+#     resource:
+#       name: cpu
+#       targetAverageUtilization: 80
+#   - type: Resource
+#     resource:
+#       name: memory
+#       targetAverageValue: 512Mi
 ---
 kind: Service
 apiVersion: v1

@@ -12,7 +12,7 @@ var http = require('http')
 var server = http.createServer((request, response) => {
     console.log('We have a request for url: ' + request.url)
     response.writeHead(200)
-    response.end('Hello from Thang with love!')
+    response.end('Hello from Thang with love!!!')
 })
 server.listen(8080)
 console.log('http server at 8080')
