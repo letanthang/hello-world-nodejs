@@ -23,8 +23,7 @@ export RELEASE=staging
   }
   function deploy() {
     #   sed 's/_VERSION_/'"latest"'/g; s/APP_NAME/'"$CI_PROJECT_NAME"'/g; s/_DATE_/'"$DATE"'/g; s/env-/'"$RELEASE-"'/g' ./provision/k8s/* > deployment.yaml
-      sed 's/APP_NAME/'"$APP_NAME"'/g; s/_DATE_/'"$DATE"'/g; s/env-/'"$RELEASE-"'/g' ./provision/k8s/deployment.yaml > deployment.yaml
-    #   sed 's/APP_NAME/'"$APP_NAME"'/g' ./provision/k8s/deployment.yaml > zdeployment.yaml
+      sed 's/APP_NAME/'"$APP_NAME"'/g; s/_DATE_/'"$DATE"'/g; s/env-/'"$RELEASE-"'/g' ./provision/k8s/deployment.yaml > zdeployment.yaml
       kubectl apply -f zdeployment.yaml
   }
   
