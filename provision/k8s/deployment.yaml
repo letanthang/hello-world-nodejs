@@ -93,8 +93,9 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-    - host: fine-iterator-231706.appspot.com
-      http:
+    # - host: fine-iterator-231706.appspot.com
+    # - host: 35.198.198.70
+    - http:
         paths:
           - path: "/api/v1/public/hello"
             backend:
