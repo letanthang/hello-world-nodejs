@@ -79,7 +79,7 @@ spec:
   ports:
   ####### Kong Ingress
   - port: 8080
-    targetPort: 8080
+    targetPort: 9090
     protocol: TCP
     name: thanglab-APP_NAME
 ---
