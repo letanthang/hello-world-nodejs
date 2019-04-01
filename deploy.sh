@@ -1,4 +1,4 @@
-export APP_NAME=hello-world
+export APP_NAME=hello
 export DATE=`date +%s`
 export RELEASE=staging
   
