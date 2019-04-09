@@ -90,7 +90,7 @@ metadata:
   name: thanglab-APP_NAME
   #namespace:  dummy
   annotations:
-    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/ingress.class: kong
 spec:
   rules:
     - host: foreachtech.tk
@@ -99,4 +99,4 @@ spec:
           - path: "/api/v1/public/hello"
             backend:
               serviceName: thanglab-APP_NAME
-              servicePort: thanglab-APP_NAME
+              servicePort: 8080
