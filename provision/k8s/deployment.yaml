@@ -78,7 +78,7 @@ spec:
   type: NodePort # NodePort|LoadBalancer|ExternalName Test kong ingress
   ports:
   ####### Kong Ingress
-  - port: 8080
+  - port: 9091
     targetPort: 9090
     protocol: TCP
     name: thanglab-APP_NAME
@@ -99,4 +99,4 @@ spec:
           - path: "/api"
             backend:
               serviceName: thanglab-APP_NAME
-              servicePort: 8080
+              servicePort: 9091
