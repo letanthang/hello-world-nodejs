@@ -30,7 +30,7 @@ spec:
       - name: thanglab-APP_NAME
         image: letanthang/hello-world
         ports:
-        - containerPort: 9090
+        - containerPort: 3000
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
@@ -80,7 +80,7 @@ spec:
   ports:
   ####### Kong Ingress
   - port: 9091
-    targetPort: 9090
+    targetPort: 3000
     protocol: TCP
     name: thanglab-APP_NAME
 ---
