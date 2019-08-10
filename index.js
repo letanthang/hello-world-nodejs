@@ -10,9 +10,17 @@
 
 var http = require('http')
 var server = http.createServer((request, response) => {
-  console.log('We have a request for url: ' + request.url)
+  // console.log('We have a request for url: ' + request.url)
   response.writeHead(200)
   response.end('Hello from Thang123 with love!!!')
 })
-server.listen(9090)
-console.log('http server at 9090')
+
+server.listen(9090, 'localhost', (err) => {
+  if (err != null) {
+    console.log('http server at 9090')
+  } else {
+    console.log('cannot start server at 9090', err)
+  }
+
+})
+
