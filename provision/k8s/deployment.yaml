@@ -30,7 +30,7 @@ spec:
       - name: thanglab-APP_NAME
         image: letanthang/hello-world
         ports:
-        - containerPort: 9090
+        - containerPort: 3000
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
@@ -71,15 +71,16 @@ kind: Service
 apiVersion: v1
 metadata:
   name: thanglab-APP_NAME
-  #namespace: station
+  labels:
+    app: thanglab-APP_NAME
 spec:
   selector:
     app: thanglab-APP_NAME
   type: NodePort # NodePort|LoadBalancer|ExternalName Test kong ingress
   ports:
   ####### Kong Ingress
-  - port: 8080
-    targetPort: 9090
+  - port: 9091
+    targetPort: 3000
     protocol: TCP
     name: thanglab-APP_NAME
 ---
@@ -88,15 +89,16 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: thanglab-APP_NAME
-  #namespace:  dummy
+  labels:
+    app: thanglab-APP_NAME
   annotations:
-    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/ingress.class: kong
 spec:
   rules:
     - host: foreachtech.tk
       http:
         paths:
-          - path: "/api/v1/public/hello"
+          - path: "/api"
             backend:
               serviceName: thanglab-APP_NAME
-              servicePort: thanglab-APP_NAME
+              servicePort: 9091
