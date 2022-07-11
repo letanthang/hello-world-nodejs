@@ -22,10 +22,10 @@ var server = http.createServer((request, response) => {
     })
   } else if (request.url === '/hello') {
     response.writeHead(200)
-    response.end('hello world')
+    response.end('hello world 2022')
   } else {
     response.writeHead(200)
-    response.end('Hello from Thang123 with love!!!')
+    response.end('Hello from Thang123 with love 2022 !!!')
   }
 
 
