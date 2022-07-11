@@ -25,7 +25,7 @@ var server = http.createServer((request, response) => {
     response.end('hello world 2022')
   } else {
     response.writeHead(200)
-    response.end('Hello from Thang123 with love 2022 !!!')
+    response.end('Hello from Thang123 with love 2022 July !!!')
   }
 
 
